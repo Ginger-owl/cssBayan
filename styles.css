@@ -10,9 +10,10 @@
 
 .page__body {
   margin: auto;
-  background-color: aliceblue;
+  background-color: #F3ECE9;
   min-width: 80%;
   font-size: .7rem;
+  color: #A53C0E;
 }
 
 .title {
@@ -20,12 +21,11 @@
   max-width: 80%;
 }
 
-
 /* Accordion */
 .accordion {
   width: 80%;
   margin: 0 auto;
-  color: olivedrab;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 /* Category */
@@ -58,32 +58,38 @@
 }
 
 .summary__icon {
+  opacity: 0;
   transform: rotate(45deg);
   transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 /* Effects */
 .accordion:hover {
-  color:  black;
+  color: #247115;
+}
+
+.accordion:hover .summary__icon {
+  opacity: 1;
 }
 
 .category:has(.category__checkbox:checked) {
-  color: red;
+  color: #247115;
 }
 
 .category:not(.category:has(.category__checkbox:checked)) .category__img {
   transform: scaleY(0);
   height: 0;
-  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1); */
 }
 
 .category:hover .summary__icon {
-  transform: rotate(0deg);
+  transform: rotate(37deg);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .category:has(.category__checkbox:checked) .summary__icon {
   transform: rotate(0deg);
-  stroke: red;
+  stroke: #247115;
 }
 
 .category:has(.category__checkbox:checked) .category__img,
@@ -102,6 +108,6 @@
 
 @media screen and (min-width: 1920px) {
   .page__body {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
