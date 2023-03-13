@@ -78,7 +78,7 @@
 
 .category:not(.category:has(.category__checkbox:checked)) .category__img {
   transform: scaleY(0);
-  height: 0;
+  max-height: 0;
   /* transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1); */
 }
 
@@ -93,7 +93,7 @@
 }
 
 .category:has(.category__checkbox:checked) .category__img,
-.category:hover > .category__img {
+.category:not(.category:has(.category__checkbox:checked)):hover > .category__img {
   transform: scaleY(1);
   max-height: fit-content;
 }
