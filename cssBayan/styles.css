@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  font-family: sans-serif
+}
+
+.page__body {
+  margin: auto;
+  background-color: #F3ECE9;
+  min-width: 80%;
+  font-size: .7rem;
+  color: #A53C0E;
+}
+
+.title {
+  margin: .4em auto .6em;
+  max-width: 80%;
+}
+
+/* Accordion */
+.accordion {
+  width: 80%;
+  margin: 0 auto;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* Category */
+.category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+}
+
+.category__checkbox {
+  display: none;
+}
+
+.category__img {
+  object-fit: cover;
+  margin: .5em auto;
+  transform: scale(0);
+  max-height: 0;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* Summary */
+.summary {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: .05em solid gray;
+}
+
+.summary__icon {
+  opacity: 0;
+  transform: rotate(45deg);
+  transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* Effects */
+.accordion:hover {
+  color: #247115;
+}
+
+.accordion:hover .summary__icon {
+  opacity: 1;
+}
+
+.category:has(.category__checkbox:checked) {
+  color: #247115;
+}
+
+.category:not(.category:has(.category__checkbox:checked)) .category__img {
+  transform: scaleY(0);
+  max-height: 0;
+  /* transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1); */
+}
+
+.category:hover .summary__icon {
+  transform: rotate(37deg);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.category:has(.category__checkbox:checked) .summary__icon {
+  transform: rotate(0deg);
+  stroke: #247115;
+}
+
+.category:has(.category__checkbox:checked) .category__img,
+.category:not(.category:has(.category__checkbox:checked)):hover > .category__img {
+  transform: scaleY(1);
+  max-height: fit-content;
+}
+
+/* Media */
+
+@media screen and (min-width: 820px) {
+  .page__body {
+    font-size: .875rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .page__body {
+    font-size: 1.1rem;
+  }
+}
